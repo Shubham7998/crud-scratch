@@ -1,0 +1,32 @@
+/* Styles for navigation container */
+.navigation-container {
+    padding: 10px; /* Adds padding around the navigation container */
+}
+
+/* Styles for main navigation */
+.main-nav {
+    background-color: #333; /* Sets the background color of the main navigation */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center-aligns the ul horizontally */
+}
+
+/* Styles for navigation list */
+.nav-list {
+    list-style: none; /* Removes default list styling */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin */
+    display: flex; /* Use flexbox for layout */
+}
+
+/* Styles for navigation items */
+.nav-item {
+    padding: 10px 50px; /* Adds padding to the navigation items */
+    color: #fff; /* Sets the text color to white */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Adds transition effect to background color */
+}
+
+/* Hover styles for navigation items */
+.nav-item:hover {
+    background-color: #555; /* Changes background color on hover */
+}
