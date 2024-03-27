@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { PropertyModel } from '../Models/PropertyModel';
-import { GetPropertyInfo } from '../Services/PropertyServices';
+import { DeletePropertyInfoById, GetPropertyInfo, GetPropertyInfoById } from '../Services/PropertyServices';
+import { useNavigate } from 'react-router-dom';
 
 export default function ShowlistUtility() {
    
+    const navigate = useNavigate();
     
     const [propertyInfo, setPropertyInfo] = useState<PropertyModel[]>([]);
 
@@ -20,12 +22,17 @@ export default function ShowlistUtility() {
         fetchData();
     }, [])
 
-    const handleEdit = (Id : number) => {
+    
 
+    const handleEdit =async (Id : number) => {
+        alert(Id);
+        navigate(`/property/${Id}`);
     }
     const handleDelete = (Id : number) => {
         const confirmation = window.confirm("Are you sure ?");
         if(confirmation){
+            alert("Data deleted");
+            DeletePropertyInfoById(Id);
             alert("Data deleted");
         }
     }

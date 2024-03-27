@@ -12,6 +12,7 @@ export default function PageRoutes() {
             <Route element={<Layout/>} >
                 <Route path='/' element={<Home />}/>
                 <Route path='/property' element={<Property />}/>
+                <Route path='/property/:id' element={<Property />}/>
                 <Route path='/showlist' element={<Showlist />}/>
 
             </Route>

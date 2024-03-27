@@ -1,9 +1,11 @@
 import React from "react";
 import PropertyUtility from "../Utilities/PropertyUtility";
 import "../Styles/Property.css"
+import { useParams } from "react-router-dom";
 
 export default function Property() {
-  const { propertyInfo, setPropertyInfo,handleSubmit, onTextChangeProperty,onSelectFieldChangeProperty ,onTextAreaChangeAddress} = PropertyUtility(0);
+  const {id = 0} = useParams();
+  const { propertyInfo, setPropertyInfo,handleSubmit, onTextChangeProperty,onSelectFieldChangeProperty ,onTextAreaChangeAddress} = PropertyUtility(+id);
 
   return (
     <div className="property-container">
