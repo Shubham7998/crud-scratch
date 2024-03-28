@@ -92,6 +92,54 @@ export const GetPropertyInfoById = async (
   return result;
 };
 
+export const SearchPropertyInfo = async (
+  search: string
+): Promise<ResponseModel> => {
+  let result: ResponseModel = {
+    error: "",
+    data: null,
+    message: "",
+    errorCode: "",
+  };
+  alert("Search Property Info");
+
+  await axios
+    .get(`http://localhost:5167/api/propertys/search?find=${search}`)
+    .then(function (response) {
+      alert("Response" + JSON.stringify(response.data));
+      result.data = response.data;
+      result.errorCode = response.status + "";
+    })
+    .catch(function (error) {
+      alert("axios error catch" + JSON.stringify(error));
+    });
+  return result;
+};
+
+// export const GetForeignDataPropertyInfo = async (
+//   search: string
+// ): Promise<ResponseModel> => {
+//   let result: ResponseModel = {
+//     error: "",
+//     data: null,
+//     message: "",
+//     errorCode: "",
+//   };
+//   alert("Search Property Info");
+
+//   await axios
+//     .get(`http://localhost:5167/api/propertys/search?find=${search}`)
+//     .then(function (response) {
+//       alert("Response" + JSON.stringify(response.data));
+//       result.data = response.data;
+//       result.errorCode = response.status + "";
+//     })
+//     .catch(function (error) {
+//       alert("axios error catch" + JSON.stringify(error));
+//     });
+//   return result;
+// };
+
 export const DeletePropertyInfoById = async (
     Id: number
   ): Promise<ResponseModel> => {

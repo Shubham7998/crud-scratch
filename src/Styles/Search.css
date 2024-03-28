@@ -1,0 +1,35 @@
+.search-container {
+  margin: 20px auto; /* Adds margin to the top and bottom, and auto to the left and right to center the container */
+  max-width: 100%; 
+  margin-left: 25%;
+  }
+  
+  .search-input {
+    margin-bottom: 20px;
+  }
+  .table-container {
+    text-align: center; /* Aligns the content of the container to the center */
+  }
+  
+  .search-input input[type='search'] {
+    padding: 10px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .search-input button {
+    margin-left: 25px;
+    padding: 11px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .search-input button:hover {
+    background-color: #0056b3;
+  }
+  

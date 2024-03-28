@@ -7,13 +7,12 @@ export default function ShowlistUtility() {
    
     const navigate = useNavigate();
     
-    const [propertyInfo, setPropertyInfo] = useState<PropertyModel[]>([]);
+    const [propertyInfo, setPropertyInfo] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
             try {
                 const response = await GetPropertyInfo();
-                alert(JSON.stringify(response.data));
                 setPropertyInfo(response.data);
             }catch(error){
                 console.error("Error fetching data : " ,error )

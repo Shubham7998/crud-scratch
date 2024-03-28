@@ -21,6 +21,7 @@ function Header() {
           <li className="nav-item" onClick={() => handleClick("/showlist")}>
             Showlist
           </li>
+          <li className="nav-item" onClick={() => handleClick("/search")}>Search</li>
         </ul>
       </nav>
     </div>

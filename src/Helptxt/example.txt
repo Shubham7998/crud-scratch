@@ -1,0 +1,83 @@
+using Microsoft.EntityFrameworkCore;
+using Property.Data;
+using Property.IRepositories;
+
+namespace Property.Repositories
+{
+    public class CountryRepository : IRepository<Country> // Replace Country with your actual entity type
+    {
+        private readonly PropertyDbContext _dbContext;
+        public CountryRepository(PropertyDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
+        public async Task<IEnumerable<Country>> GetAllAsync()
+        {
+            return await _dbContext.Countries.ToListAsync();
+        }
+
+        public async Task<Country> GetByIdAsync(int id)
+        {
+            return await _dbContext.Countries.FindAsync(id);
+        }
+        
+        // Implement other methods specific to your country entity as needed
+    }
+}
+
+using Microsoft.AspNetCore.Mvc;
+using Property.Repositories;
+
+namespace Property.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ForeignEntitiesController : ControllerBase
+    {
+        private readonly ForeignEntityRepository _foreignEntityRepository;
+
+        public ForeignEntitiesController(ForeignEntityRepository foreignEntityRepository)
+        {
+            _foreignEntityRepository = foreignEntityRepository;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<ForeignEntity>>> GetForeignEntities()
+        {
+            var foreignEntities = await _foreignEntityRepository.GetAllAsync();
+            return Ok(foreignEntities);
+        }
+
+        // Add other endpoints as needed
+        
+    }
+}
+
+using Microsoft.EntityFrameworkCore;
+using Property.Data;
+using Property.IRepositories;
+
+namespace Property.Repositories
+{
+    public class CountryRepository : IRepository<Country> // Replace Country with your actual entity type
+    {
+        private readonly PropertyDbContext _dbContext;
+        public CountryRepository(PropertyDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
+        public async Task<IEnumerable<Country>> GetAllAsync()
+        {
+            return await _dbContext.Countries.ToListAsync();
+        }
+
+        public async Task<Country> GetByIdAsync(int id)
+        {
+            return await _dbContext.Countries.FindAsync(id);
+        }
+        
+        // Implement other methods specific to your country entity as needed
+    }
+}

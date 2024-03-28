@@ -5,10 +5,11 @@ import { useParams } from "react-router-dom";
 
 export default function Property() {
   const {id = 0} = useParams();
-  const { propertyInfo, setPropertyInfo,handleSubmit, onTextChangeProperty,onSelectFieldChangeProperty ,onTextAreaChangeAddress} = PropertyUtility(+id);
+  const { propertyInfo, setPropertyInfo,handleSubmit, onTextChangeProperty,onSelectFieldChangeProperty ,onTextAreaChangeAddress,error} = PropertyUtility(+id);
 
   return (
     <div className="property-container">
+      <h1>Create Property</h1>
       <div className="property-input">
         <label htmlFor="propertyTitle" className="property-label">Property Title</label>
         <input
@@ -19,6 +20,9 @@ export default function Property() {
           value={propertyInfo.propertyTitle}
           onChange={onTextChangeProperty} />
       </div>
+      {error.propertyTitle && (
+            <div className="error">{error.propertyTitle}</div>
+          )}
       <div className="property-input">
         <label htmlFor="propertyTypeId" className="property-label">Property Type</label>
         <select
@@ -27,12 +31,15 @@ export default function Property() {
           value={propertyInfo.propertyTypeId}
           onChange={onSelectFieldChangeProperty}>
           <option value="">Select Property Type</option>
-          <option value="1">Block </option>
-          <option value="2">Bungalow</option>
-          <option value="3">Haveli</option>
-          <option value="3">Row House</option>
+          <option value="1">House </option>
+          <option value="2">Block</option>
+          <option value="3">Bungalow</option>
+          <option value="4">Villa</option>
         </select>
       </div>
+      {error.propertyTypeId && (
+            <div className="error">{error.propertyTypeId}</div>
+          )}
       <div className="property-input">
         <label htmlFor="propertyDescription" className="property-label">Property Description</label>
         <textarea
@@ -42,6 +49,9 @@ export default function Property() {
           value={propertyInfo.propertyDescription}
           onChange={onTextAreaChangeAddress} />
       </div>
+      {error.propertyDescription && (
+            <div className="error">{error.propertyDescription}</div>
+          )}
       <div className="property-input">
         <label htmlFor="propertyAddress" className="property-label">Property Address</label>
         <input
@@ -52,6 +62,9 @@ export default function Property() {
           value={propertyInfo.propertyAddress}
           onChange={onTextChangeProperty} />
       </div>
+      {error.propertyAddress && (
+            <div className="error">{error.propertyAddress}</div>
+          )}
       <div className="property-input">
         <label htmlFor="propertyPrice" className="property-label">Property Price</label>
         <input
@@ -62,6 +75,9 @@ export default function Property() {
           value={propertyInfo.propertyPrice}
           onChange={onTextChangeProperty} />
       </div>
+      {error.propertyPrice && (
+            <div className="error">{error.propertyPrice}</div>
+          )}
       <div className="property-input">
         <label htmlFor="propertySize" className="property-label">Property Size</label>
         <input
@@ -72,6 +88,9 @@ export default function Property() {
           value={propertyInfo.propertySize}
           onChange={onTextChangeProperty} />
       </div>
+      {error.propertySize && (
+            <div className="error">{error.propertySize}</div>
+          )}
       <div className="property-input">
         <label htmlFor="propertyBedrooms" className="property-label">Property Bedrooms</label>
         <input
@@ -82,6 +101,9 @@ export default function Property() {
           value={propertyInfo.propertyBedrooms}
           onChange={onTextChangeProperty} />
       </div>
+      {error.propertyBedrooms && (
+            <div className="error">{error.propertyBedrooms}</div>
+          )}
       <div className="property-input">
         <label htmlFor="propertyStatusId" className="property-label">Property Status</label>
         <select
@@ -90,10 +112,14 @@ export default function Property() {
           value={propertyInfo.propertyStatusId}
           onChange={onSelectFieldChangeProperty}>
           <option value="">Select Property Status</option>
-          <option value="1">Process</option>
-          <option value="2">Sold</option>
+          <option value="1">Sold</option>
+          <option value="2">Process</option>
+          <option value="5">Future</option>
         </select>
       </div>
+      {error.propertyStatusId && (
+            <div className="error">{error.propertyStatusId}</div>
+          )}
       <button className="submit-button" onClick={handleSubmit}>Submit</button>
     </div>
   );

@@ -4,6 +4,7 @@ import Layout from '../Components/Layout'
 import Home from '../Components/Home'
 import Property from '../Components/Property'
 import Showlist from '../Components/Showlist'
+import Search from '../Components/Search'
 
 export default function PageRoutes() {
   return (
@@ -14,6 +15,7 @@ export default function PageRoutes() {
                 <Route path='/property' element={<Property />}/>
                 <Route path='/property/:id' element={<Property />}/>
                 <Route path='/showlist' element={<Showlist />}/>
+                <Route path='/search' element={<Search />}/>
 
             </Route>
         </Routes>
