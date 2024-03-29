@@ -4,8 +4,10 @@ import "../Styles/Property.css"
 import { useParams } from "react-router-dom";
 
 export default function Property() {
+
   const {id = 0} = useParams();
-  const { propertyInfo, setPropertyInfo,handleSubmit, onTextChangeProperty,onSelectFieldChangeProperty ,onTextAreaChangeAddress,error} = PropertyUtility(+id);
+  
+  const { propertyInfo, handleSubmit, onTextChangeProperty,onSelectFieldChangeProperty ,onTextAreaChangeAddress,error} = PropertyUtility(+id);
 
   return (
     <div className="property-container">

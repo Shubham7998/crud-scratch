@@ -42,7 +42,8 @@ export default function PropertyUtility(id: number) {
     }, [id]);
 
     const validatePropertyFields = (propertyInfo: PropertyModel) => {
-        alert("validations")
+        alert("validations");
+
         const {
             propertyTitle,
             propertyTypeId,
@@ -53,6 +54,7 @@ export default function PropertyUtility(id: number) {
             propertyBedrooms,
             propertyStatusId
         } = propertyInfo;
+
         const newErrors: Partial<Record<string, string>> = {};
 
         if (!propertyTitle.trim()) {
@@ -61,7 +63,7 @@ export default function PropertyUtility(id: number) {
             newErrors.propertyTitle = "Property title must be less than 40 characters";
         }
 
-        if (propertyTypeId === 0) {
+        if (propertyTypeId <= 0) {
             newErrors.propertyTypeId = "Please select a property type";
         }
 
@@ -119,8 +121,8 @@ export default function PropertyUtility(id: number) {
                 console.error("Error adding property:", error);
                 alert("Failed to add property. Please try again later.");
             }
+        
         }
-
 
     }
 
@@ -128,6 +130,7 @@ export default function PropertyUtility(id: number) {
         var name = event.currentTarget.name;
         var newValue = event.currentTarget.value;
 
+        // alert(name + " : " +newValue)
         setPropertyInfo((prev) => ({ ...prev, [name]: newValue }));
     }
 
@@ -138,6 +141,7 @@ export default function PropertyUtility(id: number) {
         setPropertyInfo((prevState) => ({ ...prevState, [name]: newValue }));
 
     };
+
     const onTextAreaChangeAddress = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         var name = event.currentTarget.name;
         var newValue = event.currentTarget.value;

@@ -1,12 +1,15 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { GetPropertyInfo, SearchPropertyInfo } from '../Services/PropertyServices';
+import { AdvanceSearchPropertyInfo, GetPropertyInfo, SearchPropertyInfo } from '../Services/PropertyServices';
+import { PropertyModel } from '../Models/PropertyModel';
+import { json } from 'stream/consumers';
 
 export default function SearchUtility() {
     const [searchProperty, setSearchProperty] = useState([]);
 
     const [search, setSearch] = useState("");
 
+    
     const handleChange = (
         e: React.ChangeEvent<
             HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -32,5 +35,6 @@ export default function SearchUtility() {
         //     .catch();
     };
 
+  
     return {searchProperty, handleChange, handleSubmit, search, getForeignKeyData}
 }

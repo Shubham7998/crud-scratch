@@ -5,6 +5,7 @@ import Home from '../Components/Home'
 import Property from '../Components/Property'
 import Showlist from '../Components/Showlist'
 import Search from '../Components/Search'
+import AdvanceSearch from '../Components/AdvanceSearch'
 
 export default function PageRoutes() {
   return (
@@ -16,7 +17,7 @@ export default function PageRoutes() {
                 <Route path='/property/:id' element={<Property />}/>
                 <Route path='/showlist' element={<Showlist />}/>
                 <Route path='/search' element={<Search />}/>
-
+                <Route path='/advanceSearch' element={<AdvanceSearch />}/>
             </Route>
         </Routes>
     </>

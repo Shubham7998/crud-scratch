@@ -27,7 +27,7 @@ export default function Showlist() {
           </tr>
         </thead>
         <tbody>
-          {propertyInfo?.map((data: any, key: any) => (
+          {propertyInfo?.map((data: any, key: number) => (
             <tr key={key}>
               <td>{key + 1}</td>
               <td>{data.propertyTitle}</td>

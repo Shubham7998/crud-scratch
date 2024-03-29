@@ -3,10 +3,15 @@ import '../Styles/Search.css'; // Import CSS file
 import axios from 'axios';
 import SearchUtility from '../Utilities/SearchUtility';
 import { get } from 'http';
+import PropertyUtility from '../Utilities/PropertyUtility';
 
 export default function Search() {
     
     const {searchProperty, handleChange, handleSubmit, search, getForeignKeyData} = SearchUtility();
+
+    
+
+    
 
     return (
         <div className="search-container">
@@ -14,7 +19,9 @@ export default function Search() {
                 <input type='search' placeholder="Enter your search term" onChange={(e) => handleChange(e)} />
                 <button onClick={(e) => handleSubmit()}>Search</button>
                 <button onClick={(e) => getForeignKeyData()}>Get Data</button>
+                
             </div>
+            
             <div className='properties-container'>
             <table className="showlist-table">
                 <thead>
